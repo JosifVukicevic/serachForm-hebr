@@ -1,0 +1,223 @@
+body {
+    direction: rtl;
+    font-family: openSansHebrew, Arial, sans-serif;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.658);
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: inline-block;
+    background-color: white;
+    padding: 10px 20px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin-left: 2px;
+    height: 20px;
+    width: auto;
+}
+
+ul li a img {
+    width: 27px;
+    /*display: table-cell;*/
+}
+
+ul li a {
+    text-decoration: none;
+    color: #d20018;
+}
+
+.active.nav-item a {
+    color: white;
+}
+
+li.active {
+    background-color: #d20018;
+    color: white;
+}
+
+li:hover {
+    background-color: #d20018;
+    color: white;
+}
+
+li:hover a {
+    color: white;
+}
+
+.content-form {
+    background-color: hsla(0, 0%, 100%, .9);
+    border-radius: 12px 0 12px 12px;
+    position: relative;
+    border-top: 2px solid #d20018;
+    min-height: 130px;
+    padding: 15px 36px 15px 15px;
+    display: flex;
+    align-items: center;
+    
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 9px;
+}
+
+.input-group div label {
+    color: #717171;
+    font-size: 14px;
+}
+
+form input, form input[type=button] {
+    border-radius: 3px;
+    border: 1px solid rgba(201, 197, 197, 0.616);
+    height: 40px;
+    width: 100%;
+}
+
+.initial-div-i-fields {
+    background-color: white; 
+    border-radius: 5px;
+    width: 100%;
+}
+
+.div-for-time {
+    background-color: white; 
+    border-radius: 5px;
+    width: 100px;
+}
+
+.input-for-time::placeholder, 
+.input-for-time::placeholder {
+    text-align: center;
+}
+
+#main-div-for-pickTime,
+#main-div-for-dropTime {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main-div-i-fields {
+    display: flex; 
+    align-items: center; 
+    flex-direction: row; 
+    width: 100%; 
+    height: 40px; 
+    position: relative;
+    border: 1px solid hsla(0, 0%, 66%, .5);
+    border-radius: 5px;
+}
+
+.main-div-i-fields:active {
+    outline: 1px solid hsla(0, 0%, 63%, 0.5);
+}
+
+.main-div-i-fields input {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+.icons-in-form {
+    height: 25px; 
+    width: 25px;
+    margin-right: 5px;
+    margin-left: 3px;
+}
+
+.icon-choose {
+    width: 10px;
+    height: 8px;
+    margin-left: 10px;
+    margin-right: 15px;
+}
+
+.input-for-date {
+    width: 60px; 
+    background-color: transparent; 
+    border: none; 
+    outline: none;
+    text-align: center;
+    margin-left: 5px;
+    margin-right: 8px;
+}
+
+.input-for-date:hover, 
+.input-for-date:focus,
+.input-for-time:hover,
+.input-for-time:focus {
+    cursor: pointer;
+    caret-color: transparent;
+    box-shadow: 0 0 5px rgba(156, 156, 165, 0.5);
+}
+
+.search-button {
+    direction: ltr;
+    margin-left: 22px;
+    /*margin-right: auto;*/
+}
+
+.search-button button {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 40px;
+    background-color: #d20018;
+    border: 1px solid hsla(0, 0%, 66%, .5);
+    border-radius: 5px;
+}
+
+.search-button button:hover,
+.search-button label:hover {
+    cursor: pointer;
+}
+
+.search-button button:hover {
+    background-color: #f50420;
+}
+
+.search-button button label {
+    color: white;
+    font-size: 17px;
+}
+
+.search-button button img {
+    margin-right: 15px; 
+    width: 20px;
+}
+
+#travelers-div:hover, 
+#travelers-div div input:hover,
+#choose-type-id:hover,
+#choose-type-id div div input:hover
+#pickTime-div:hover,
+#dropTime-div:hover {
+    cursor: pointer;
+}
+
+#travelers-div div input:focus,
+#choose-type-id div div input:focus,
+#pickTime-div:focus,
+#dropTime-div:focus {
+    caret-color: transparent;
+    box-shadow: 0 0 5px rgba(156, 156, 165, 0.5);
+}
+
