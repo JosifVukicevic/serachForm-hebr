@@ -64,7 +64,7 @@ li:hover a {
     padding: 15px 36px 15px 15px;
     display: flex;
     align-items: center;
-    
+
 }
 
 .input-group {
@@ -79,7 +79,8 @@ li:hover a {
     font-size: 14px;
 }
 
-form input, form input[type=button] {
+form input,
+form input[type=button] {
     border-radius: 3px;
     border: 1px solid rgba(201, 197, 197, 0.616);
     height: 40px;
@@ -87,18 +88,18 @@ form input, form input[type=button] {
 }
 
 .initial-div-i-fields {
-    background-color: white; 
+    background-color: white;
     border-radius: 5px;
     width: 100%;
 }
 
 .div-for-time {
-    background-color: white; 
+    background-color: white;
     border-radius: 5px;
     width: 100px;
 }
 
-.input-for-time::placeholder, 
+.input-for-time::placeholder,
 .input-for-time::placeholder {
     text-align: center;
 }
@@ -110,12 +111,20 @@ form input, form input[type=button] {
     flex-direction: column;
 }
 
+.container-for-tab {
+    display: none;
+}
+
+.container-for-tab.active {
+    display: block;
+}
+
 .main-div-i-fields {
-    display: flex; 
-    align-items: center; 
-    flex-direction: row; 
-    width: 100%; 
-    height: 40px; 
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    height: 40px;
     position: relative;
     border: 1px solid hsla(0, 0%, 66%, .5);
     border-radius: 5px;
@@ -126,7 +135,7 @@ form input, form input[type=button] {
 }
 
 .main-div-i-fields input {
-    display: flex; 
+    display: flex;
     align-items: center;
     justify-content: center;
     height: 30px;
@@ -136,7 +145,7 @@ form input, form input[type=button] {
 }
 
 .icons-in-form {
-    height: 25px; 
+    height: 25px;
     width: 25px;
     margin-right: 5px;
     margin-left: 3px;
@@ -150,16 +159,16 @@ form input, form input[type=button] {
 }
 
 .input-for-date {
-    width: 60px; 
-    background-color: transparent; 
-    border: none; 
+    width: 60px;
+    background-color: transparent;
+    border: none;
     outline: none;
     text-align: center;
     margin-left: 5px;
     margin-right: 8px;
 }
 
-.input-for-date:hover, 
+.input-for-date:hover,
 .input-for-date:focus,
 .input-for-time:hover,
 .input-for-time:focus {
@@ -175,7 +184,7 @@ form input, form input[type=button] {
 }
 
 .search-button button {
-    display: flex; 
+    display: flex;
     align-items: center;
     justify-content: center;
     width: 120px;
@@ -200,15 +209,14 @@ form input, form input[type=button] {
 }
 
 .search-button button img {
-    margin-right: 15px; 
+    margin-right: 15px;
     width: 20px;
 }
 
-#travelers-div:hover, 
+#travelers-div:hover,
 #travelers-div div input:hover,
 #choose-type-id:hover,
-#choose-type-id div div input:hover
-#pickTime-div:hover,
+#choose-type-id div div input:hover #pickTime-div:hover,
 #dropTime-div:hover {
     cursor: pointer;
 }
@@ -221,3 +229,148 @@ form input, form input[type=button] {
     box-shadow: 0 0 5px rgba(156, 156, 165, 0.5);
 }
 
+/* Dropdown prozori */
+
+.dropdown-content {
+    /*display: none;*/
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    border: 1px solid #ddd;
+    z-index: 1;
+    top: 105%;
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdown-content a:hover {
+    background-color: #006fca;
+    color: white;
+    cursor: pointer;
+}
+
+.travelers-content {
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    z-index: 1;
+    top: 105%;
+    padding: 5px 15px 10px 15px;
+}
+
+.sec-travelers {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.spanText {
+    display: flex;
+    flex-direction: column;
+}
+
+.button-finTravelers {
+    direction: ltr;
+}
+
+.hiddenSpan {
+    visibility: hidden;
+}
+
+.travelers-content div h3 {
+    color: #d20018;
+}
+
+.travelers-content:hover {
+    cursor: default;
+}
+
+.buttons-travelers {
+    display: flex;
+    align-items: center;
+    border: 2px solid #afaeae;
+    margin-right: auto;
+    border-radius: 4px;
+}
+
+.buttons-travelers button {
+    display: flex;
+}
+
+.button-plus {
+    border: none;
+    border-left: 1px solid #afaeae;
+}
+
+.button-minus {
+    border: none;
+    border-right: 1px solid #afaeae;
+}
+
+.buttons-travelers span {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.buttons-travelers button img {
+    height: 30px;
+}
+
+.buttons-travelers button:hover, .button-finTravelers button:hover {
+    cursor: pointer;
+    background-color: rgba(202, 197, 197, 0.822);
+}
+
+.spanText span:nth-last-child(1) {
+    color: #717171;
+}
+
+.spanText {
+    font-size: smaller;
+}
+
+.button-finTravelers {
+    margin-left: 10px;
+}
+
+.button-finTravelers button {
+    background-color: #0172df;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 17px;
+    color: white;
+    line-height: 30px;
+    width: 45%;
+}
+
+.button-finTravelers button:hover {
+    background-color: #4db6f0;
+}
+
+.checkbox-travelers {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    direction: ltr;
+}
+
+.checkbox {
+    width: 30px;
+}
+
+.checkbox-travelers h3 {
+    margin-left: 23%;
+}
