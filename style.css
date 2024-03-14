@@ -232,7 +232,7 @@ form input[type=button] {
 /* Dropdown prozori */
 
 .dropdown-content {
-    /*display: none;*/
+    visibility: hidden;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 200px;
@@ -241,6 +241,11 @@ form input[type=button] {
     top: 105%;
     max-height: 200px;
     overflow-y: scroll;
+    border-radius: 4px;
+}
+
+.show {
+    visibility: visible;
 }
 
 .dropdown-content a {
@@ -341,10 +346,6 @@ form input[type=button] {
     font-size: smaller;
 }
 
-.button-finTravelers {
-    margin-left: 10px;
-}
-
 .button-finTravelers button {
     background-color: #0172df;
     border: none;
@@ -374,3 +375,24 @@ form input[type=button] {
 .checkbox-travelers h3 {
     margin-left: 23%;
 }
+
+#myDropdown3 {
+    visibility: hidden;
+}
+
+/*kalendar*/
+
+.width-auto input {
+    width: auto;
+}
+
+.nav li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav li a span {
+    margin-right: 10px;
+}
+  
