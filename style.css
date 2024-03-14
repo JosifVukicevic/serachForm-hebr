@@ -232,7 +232,6 @@ form input[type=button] {
 /* Dropdown prozori */
 
 .dropdown-content {
-    visibility: hidden;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 200px;
@@ -396,3 +395,29 @@ form input[type=button] {
     margin-right: 10px;
 }
   
+#myDropdown2 {
+    display: none;
+}
+
+#myDropdown1 {
+    display: none;
+}
+
+#myDropdown2 a {
+    display: block;
+}
+
+#myDropdown1 a {
+    display: block;
+}
+
+.tabs1 {
+    display: none;
+}
+
+#dropdown-for-cars-pickUpTime, 
+#dropdown-for-cars-dropOffTime, 
+#dropdown-for-transfers-pickUpTime {
+    left: 0;
+    min-width: 100px;
+}

@@ -1,0 +1,172 @@
+@media only screen and (max-width: 600px) {
+   
+  
+    
+    .container {
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    ul {
+        list-style-type: disc;
+        padding: 0;
+        margin: 0;
+    }
+    
+    li {
+        display: inline-block;
+        background-color: transparent;
+        padding: 0;
+        margin: 0px;
+       
+        width: 15%;
+        font-size: 12px;
+    }
+    
+    ul li a img {
+    display: none;
+    }
+    .form{
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    
+    li.active.nav-item{
+        background-color: transparent;
+        border-top: 2px solid blue;
+        border-radius: 0;
+     
+    }
+    span{
+        color: blue;
+        font-size: 14px;
+        font-weight:600;
+       
+    }
+  
+    
+   
+    
+   
+   
+    
+    .content-form {
+        background-color: hsla(0, 0%, 100%, .9);
+        border-radius: 12px;
+        position: relative;
+        border-top: none;
+        min-height: auto;
+        padding: 0 5px 5px 5px;
+        display: block;
+        align-items: initial;
+    }
+    
+    .input-group {
+        display: block;
+        flex-direction: column;
+        padding-bottom: 15px;
+    }
+    
+   
+    
+    
+    
+    .initial-div-i-fields {
+       
+        width: 100%;
+    }
+    
+    .div-for-time {
+        background-color: white;
+        border-radius: 5px;
+        width: 100px;
+    }
+    
+    .main-div-i-fields {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 40px;
+        border: 1px solid hsla(0, 0%, 66%, .5);
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+    
+ 
+    
+  .tabs{
+    display: none;
+  }
+  
+    
+    #main-div-for-pickTime, #main-div-for-dropTime {
+        display: flex;
+        align-items: baseline;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+   ul.nav{
+    margin-bottom: 10px;
+   }
+    
+ 
+    
+    .search-button {
+        direction: ltr;
+        margin-left: 0px;
+    }
+    
+    .search-button button {
+      width: 100%;
+      margin: 0px;
+      background-color: blue;
+      margin-bottom: 10px;
+    }
+    
+    .tabs-container {
+        overflow-x: auto;  /* Enable horizontal scrolling */
+        white-space: nowrap;  /* Prevent wrapping of tabs */
+        width: 100%;  /* Adjust width as needed */
+    }
+    
+    .tabs1 {
+        display: inline-block;  /* Ensure the container only takes as much width as necessary */
+    }
+    
+    .nav {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .nav-item {
+        display: inline-block;
+        margin-right: 10px;  /* Adjust spacing between tabs */
+    }
+
+    .tabs-container::-webkit-scrollbar {
+        display: none;
+    }
+    
+  
+    .search-button button:hover {
+        background-color:blue;
+    }
+    
+    
+    li:hover {
+        background-color:transparent;
+        color: white;
+    }
+    
+ #villas-type{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+ }
+
+
+
+
+}
