@@ -285,7 +285,8 @@ form input[type=button] {
     flex-direction: column;
 }
 
-.button-finTravelers {
+.button-finTravelers,
+.button-fin-guests-charter {
     direction: ltr;
 }
 
@@ -332,7 +333,9 @@ form input[type=button] {
     height: 30px;
 }
 
-.buttons-travelers button:hover, .button-finTravelers button:hover {
+.buttons-travelers button:hover, 
+.button-finTravelers button:hover, 
+.button-fin-guests-charter button:hover {
     cursor: pointer;
     background-color: rgba(202, 197, 197, 0.822);
 }
@@ -345,7 +348,8 @@ form input[type=button] {
     font-size: smaller;
 }
 
-.button-finTravelers button {
+.button-finTravelers button, 
+.button-fin-guests-charter button {
     background-color: #0172df;
     border: none;
     border-radius: 4px;
@@ -356,7 +360,8 @@ form input[type=button] {
     width: 45%;
 }
 
-.button-finTravelers button:hover {
+.button-finTravelers button:hover, 
+.button-fin-guests-charter button:hover {
     background-color: #4db6f0;
 }
 
@@ -411,6 +416,10 @@ form input[type=button] {
     display: block;
 }
 
+#dropdownTypeCharter {
+    display: none;
+}
+
 .tabs1 {
     display: none;
 }
@@ -421,3 +430,8 @@ form input[type=button] {
     left: 0;
     min-width: 100px;
 }
+
+.hiddenSpanCharter {
+    visibility: hidden;
+}
+
