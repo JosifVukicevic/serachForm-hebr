@@ -167,18 +167,20 @@ function setType(type) {
 
     if (type === 'Villa') {
         type = "1";
+        form2.villas_type = type;
     }
     else if (type === 'Apartment') {
         type = "2";
+        form2.villas_type = type;
     }
     else if (type === 'Hotel room'){
         type = "3";
+        form2.villas_type = type;
     }
     else {
-        type = 0
+        type = "0";
     }
 
-    form2.villas_type = type;
     document.getElementById('myDropdown2').style.display = 'none';
 }
 
@@ -243,9 +245,10 @@ function formatData() {
     var formattedData = '&guests=' + numberOfGuests + '&adults=' + adultsCount +
         '&children=' + adultsSmallCount +
         '&infants=' + infantsCount +
+        '&pets=' + petsAllowedNumber +
         '&bedrooms=' + bedroomsCount +
-        '&bathrooms=' + bathroomsCount +
-        '&pets=' + petsAllowedNumber;
+        '&bathrooms=' + bathroomsCount;
+        
 
     form2.villas_travelers = formattedData;
 
@@ -382,7 +385,38 @@ document.addEventListener("DOMContentLoaded", function () {
         if (event.target.tagName === "A") {
             var selectedLocation = event.target.textContent;
             inputField.value = selectedLocation;
-            form3.cars_pickUp = selectedLocation;
+
+            if (selectedLocation === ""){
+                form3.cars_pickUp = "";
+            }
+            else if (selectedLocation === ""){
+                form3.cars_pickUp = "";
+            }
+            else if (selectedLocation === ""){
+                form3.cars_pickUp = "";
+            }
+            else if (selectedLocation === ""){
+                form3.cars_pickUp = "";
+            }
+            else if (selectedLocation === ""){
+                form3.cars_pickUp = "";
+            }
+            else if (selectedLocation === ""){
+                form3.cars_pickUp = "";
+            }
+            else if (selectedLocation === ""){
+                form3.cars_pickUp = "";
+            }
+            else if (selectedLocation === ""){
+                form3.cars_pickUp = "";
+            }
+            else if (selectedLocation === ""){
+                form3.cars_pickUp = "";
+            }
+            else {
+                console.log("Nothing")
+            }
+            
             dropdown.style.display = "none";
         }
     });
@@ -427,7 +461,38 @@ document.addEventListener("DOMContentLoaded", function () {
         if (event.target.tagName === "A") {
             var selectedLocation = event.target.textContent;
             inputField.value = selectedLocation;
-            form3.cars_samePickUp = selectedLocation;
+            
+            if (selectedLocation === "Tivat Bus Station"){
+                form3.cars_samePickUp = "205";
+            }
+            else if (selectedLocation === ""){
+                form3.cars_samePickUp = "";
+            }
+            else if (selectedLocation === ""){
+                form3.cars_samePickUp = "";
+            }
+            else if (selectedLocation === ""){
+                form3.cars_samePickUp = "";
+            }
+            else if (selectedLocation === ""){
+                form3.cars_samePickUp = "";
+            }
+            else if (selectedLocation === ""){
+                form3.cars_samePickUp = "";
+            }
+            else if (selectedLocation === ""){
+                form3.cars_samePickUp = "";
+            }
+            else if (selectedLocation === ""){
+                form3.cars_samePickUp = "";
+            }
+            else if (selectedLocation === ""){
+                form3.cars_samePickUp = "";
+            }
+            else {
+                console.log("Nothing")
+            }
+
             dropdown.style.display = "none";
         }
     });
@@ -825,95 +890,43 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Search dugme - funkcija za prosljedjivanje na odgovarajuci url
 
-function updateUrlAndSubmit() {
-    var activeTab = document.querySelector('.nav-item.active');
-
-    if (activeTab) {
-        var tabId = activeTab.getAttribute('href');
-        var data = formatData();
-        var url;
-
-        switch (tabId) {
-            case '#tab1':
-                console.log("hotels")
-                break;
-            case '#tab2':
-                var base_url = 'https://montenegrovillas.com/en';
-                window.location.href = base_url;
-                console.log("usao")
-
-                var query_parameters = '?q=' + location + '&from=' + fromDate + '&to=' + toDate + '&type=' + numberOfType;
-                url = base_url + query_parameters + data;
-
-                break;
-            case '#tab3':
-                var base_url = 'www.montenegrocars.com/en/';
-                var query_parameters = '?';
-
-                var locationNumber;
-
-                if (location === "Tivat Bus Station") {
-                    locationNumber = "205";
-                } else if (location === "Porto Montenegro") {
-                    locationNumber = "208";
-                } else {
-                    location = location
-                }
-
-                url = 'www.montenegrocars.com/en/?goingTo=Tivat&type=Car';
-                break;
-            case '#tab4':
-                var base_url = 'www.montenegrotransfers.com/en/';
-                var query_parameters = '?';
-                url = 'www.montenegrotansfers.com/en/?goingTo=Tivat&type=Transfer';
-                break;
-            case '#tab5':
-                var base_url = 'www.montenegroactivities.com/en/';
-                var query_parameters = '?';
-                url = 'www.montenegroactivities.com/en/?goingTo=Tivat&type=Activity';
-                break;
-            case '#tab6':
-                var base_url = 'www.montenegrocharter.com/en/';
-                var query_parameters = '?';
-                url = 'www.montenegrocharter.com/en/?goingTo=Tivat&type=Boat';
-                break;
-            default:
-                return;
-        }
-    }
-}
-
 function functionForButton2(){
-    var base_url = 'https://montenegrovillas.com/en';
+    var base_url = 'https://montenegrovillas.com/en/villas';
     var query_parameters = '?q=' + form2.villas_goingTo + '&from=' + form2.villas_fromDate + '&to=' + form2.villas_toDate + '&type=' + form2.villas_type;
-    url = base_url + query_parameters;
+    url = base_url + query_parameters + form2.villas_travelers;
+    console.log(url)
     window.location.href = url
 }
 
 function functionForButton3(){
-    var base_url = 'www.montenegrocars.com/en/';
-
+    var base_url = 'www.montenegrocars.me/en/reservation/vehicles/';
+    var query_parameters = '?' + 'poslovnica_od=' + form3.cars_pickUp + '&poslovnica_do' + form3.cars_samePickUp + '&date_from' + form3.cars_fromDate + '&time_from' + form3.cars_pickUpTime + '&date_to' + form3.cars_toDate + '&time_to' + form3.cars_dropOffTime + '#vehicles-list';
     url = base_url + query_parameters;
+    console.log(url)
     window.location.href = url
 }
 
 function functionForButton4(){
-    var base_url = '';
-
+    var base_url = 'https://transfermontenegro.me/booking';
+    // pitanje za service_type_id=1
+    var query_parameters = '?' + '&pickup_date=' + form4.transfers_date + '&pickup_time=' + form4.transfers_pickUpTime +  ;
     url = base_url + query_parameters;
+    console.log(url)
     window.location.href = url
 }
 
 function functionForButton5(){
     var base_url = 'https://montenegrotour.me/en';
-
+    var query_parameters
     url = base_url + query_parameters;
+    console.log(url)
     window.location.href = url
 }
 
 function functionForButton6(){
     var base_url = 'https://charter.me/en';
-
+    var query_parameters
     url = base_url + query_parameters;
+    console.log(url)
     window.location.href = url
 }
