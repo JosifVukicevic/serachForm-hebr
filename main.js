@@ -386,33 +386,67 @@ document.addEventListener("DOMContentLoaded", function () {
             var selectedLocation = event.target.textContent;
             inputField.value = selectedLocation;
 
-            if (selectedLocation === ""){
-                form3.cars_pickUp = "";
+            if (selectedLocation === "Tivat Bus Station"){
+                form3.cars_pickUp = "205";
             }
-            else if (selectedLocation === ""){
-                form3.cars_pickUp = "";
+            else if (selectedLocation === "Porto Montenegro"){
+                form3.cars_pickUp = "208";
             }
-            else if (selectedLocation === ""){
-                form3.cars_pickUp = "";
+            else if (selectedLocation === "Nikki Beach Tivat "){
+                form3.cars_pickUp = "211";
             }
-            else if (selectedLocation === ""){
-                form3.cars_pickUp = "";
+            else if (selectedLocation === "Petrovac - Hotel Palas "){
+                form3.cars_pickUp = "118";
             }
-            else if (selectedLocation === ""){
-                form3.cars_pickUp = "";
+            else if (selectedLocation === "Becici "){
+                form3.cars_pickUp = "180";
             }
-            else if (selectedLocation === ""){
-                form3.cars_pickUp = "";
+            else if (selectedLocation === "Bip Hotel "){
+                form3.cars_pickUp = "206";
             }
-            else if (selectedLocation === ""){
-                form3.cars_pickUp = "";
+            else if (selectedLocation === "Iberostar Bellevue "){
+                form3.cars_pickUp = "213";
             }
-            else if (selectedLocation === ""){
-                form3.cars_pickUp = "";
+            else if (selectedLocation === "Portonovi Resort "){
+                form3.cars_pickUp = "207";
             }
-            else if (selectedLocation === ""){
-                form3.cars_pickUp = "";
+            else if (selectedLocation === "Iberostar "){
+                form3.cars_pickUp = "218";
             }
+            else if (selectedLocation === "Bijela "){
+                form3.cars_pickUp = "220";
+            }
+            else if (selectedLocation === "Kotor Downtown "){
+                form3.cars_pickUp = "181";
+            }
+            else if (selectedLocation === "Huma Kotor Bay Hotel & Villas"){
+                form3.cars_pickUp = "212";
+            }
+            else if (selectedLocation === "Kotor Marina"){
+                form3.cars_pickUp = "216";
+            }
+            else if (selectedLocation === "Prčanj "){
+                form3.cars_pickUp = "223";
+            }
+            else if (selectedLocation === "Bar "){
+                form3.cars_pickUp = "172";
+            }
+            else if (selectedLocation === "Kolasin"){
+                form3.cars_pickUp = "173";
+            }
+            else if (selectedLocation === "Kolasin"){
+                form3.cars_pickUp = "214";
+            }
+            else if (selectedLocation === "Hotel Lazaro  "){
+                form3.cars_pickUp = "215";
+            }
+            else if (selectedLocation === "Hotel Keto "){
+                form3.cars_pickUp = "221";
+            }
+            else if (selectedLocation === "Hotel Hilton"){
+                form3.cars_pickUp = "222";
+            }
+        
             else {
                 console.log("Nothing")
             }
@@ -465,30 +499,64 @@ document.addEventListener("DOMContentLoaded", function () {
             if (selectedLocation === "Tivat Bus Station"){
                 form3.cars_samePickUp = "205";
             }
-            else if (selectedLocation === ""){
-                form3.cars_samePickUp = "";
+            else if (selectedLocation === "Porto Montenegro"){
+                form3.cars_samePickUp = "208";
             }
-            else if (selectedLocation === ""){
-                form3.cars_samePickUp = "";
+            else if (selectedLocation === "Nikki Beach Tivat "){
+                form3.cars_samePickUp = "211";
             }
-            else if (selectedLocation === ""){
-                form3.cars_samePickUp = "";
+            else if (selectedLocation === "Petrovac - Hotel Palas "){
+                form3.cars_samePickUp = "118";
             }
-            else if (selectedLocation === ""){
-                form3.cars_samePickUp = "";
+            else if (selectedLocation === "Becici "){
+                form3.cars_samePickUp = "180";
             }
-            else if (selectedLocation === ""){
-                form3.cars_samePickUp = "";
+            else if (selectedLocation === "Bip Hotel "){
+                form3.cars_samePickUp = "206";
             }
-            else if (selectedLocation === ""){
-                form3.cars_samePickUp = "";
+            else if (selectedLocation === "Iberostar Bellevue "){
+                form3.cars_samePickUp = "213";
             }
-            else if (selectedLocation === ""){
-                form3.cars_samePickUp = "";
+            else if (selectedLocation === "Portonovi Resort "){
+                form3.cars_samePickUp = "207";
             }
-            else if (selectedLocation === ""){
-                form3.cars_samePickUp = "";
+            else if (selectedLocation === "Iberostar "){
+                form3.cars_samePickUp = "218";
             }
+            else if (selectedLocation === "Bijela "){
+                form3.cars_samePickUp = "220";
+            }
+            else if (selectedLocation === "Kotor Downtown "){
+                form3.cars_samePickUp = "181";
+            }
+            else if (selectedLocation === "Huma Kotor Bay Hotel & Villas"){
+                form3.cars_samePickUp = "212";
+            }
+            else if (selectedLocation === "Kotor Marina"){
+                form3.cars_samePickUp = "216";
+            }
+            else if (selectedLocation === "Prčanj "){
+                form3.cars_samePickUp = "223";
+            }
+            else if (selectedLocation === "Bar "){
+                form3.cars_samePickUp = "172";
+            }
+            else if (selectedLocation === "Kolasin"){
+                form3.cars_samePickUp = "173";
+            }
+            else if (selectedLocation === "Kolasin"){
+                form3.cars_samePickUp = "214";
+            }
+            else if (selectedLocation === "Hotel Lazaro  "){
+                form3.cars_samePickUp = "215";
+            }
+            else if (selectedLocation === "Hotel Keto "){
+                form3.cars_samePickUp = "221";
+            }
+            else if (selectedLocation === "Hotel Hilton"){
+                form3.cars_samePickUp = "222";
+            }
+        
             else {
                 console.log("Nothing")
             }
@@ -635,7 +703,71 @@ document.addEventListener("DOMContentLoaded", function () {
         if (event.target.tagName === "A") {
             var selectedLocation = event.target.textContent;
             inputField.value = selectedLocation;
-            form4.transfers_departure = selectedLocation;
+
+            if (selectedLocation === "Tirana"){
+                form4.transfers_departure = "13135";
+            }
+            else if (selectedLocation === "Airport Podgorica (TGD)"){
+                form4.transfers_departure = "13114";
+            }
+            else if (selectedLocation === "Airport Tivat (TIV)"){
+                form4.transfers_departure = "13077";
+            }
+            else if (selectedLocation === "Petrovac"){
+                form4.transfers_departure = "13073";
+            }
+            else if (selectedLocation === "Kolašin"){
+                form4.transfers_departure = "11864";
+            }
+            else if (selectedLocation === "Airport Dubrovnik (DBV)"){
+                form4.transfers_departure = "13786";
+            }
+            else if (selectedLocation === "Dubrovnik"){
+                form4.transfers_departure = "11846";
+            }
+            else if (selectedLocation === "Airport Tirana (TIA)"){
+                form4.transfers_departure = "11845";
+            }
+            else if (selectedLocation === "Durmitor/Žabljak"){
+                form4.transfers_departure = "11844";
+            }
+            else if (selectedLocation === "Monastery Ostrog"){
+                form4.transfers_departure = "11842";
+            }
+            else if (selectedLocation === "Skadar Lake"){
+                form4.transfers_departure = "11841";
+            }
+            else if (selectedLocation === "Bar"){
+                form4.transfers_departure = "11840";
+            }
+            else if (selectedLocation === "Kotor"){
+                form4.transfers_departure = "11838";
+            }
+            else if (selectedLocation === "Perast"){
+                form4.transfers_departure = "11837";
+            }
+            else if (selectedLocation === "Cetinje"){
+                form4.transfers_departure = "11836";
+            }
+            else if (selectedLocation === "Herceg Novi"){
+                form4.transfers_departure = "11835";
+            }
+            else if (selectedLocation === "Tivat"){
+                form4.transfers_departure = "11834";
+            }
+            else if (selectedLocation === "Ulcinj"){
+                form4.transfers_departure = "11573";
+            }
+            else if (selectedLocation === "Budva"){
+                form4.transfers_departure = "11752";
+            }
+            else if (selectedLocation === "Podgorica"){
+                form4.transfers_departure = "11751";
+            }
+            else {
+                console.log("Nothing")
+            }
+
             dropdown.style.display = "none";
         }
     });
@@ -680,7 +812,71 @@ document.addEventListener("DOMContentLoaded", function () {
         if (event.target.tagName === "A") {
             var selectedLocation = event.target.textContent;
             inputField.value = selectedLocation;
-            form4.transfers_arrival = selectedLocation;
+
+            if (selectedLocation === "Tirana"){
+                form4.transfers_arrival = "13135";
+            }
+            else if (selectedLocation === "Airport Podgorica (TGD)"){
+                form4.transfers_arrival = "13114";
+            }
+            else if (selectedLocation === "Airport Tivat (TIV)"){
+                form4.transfers_arrival = "13077";
+            }
+            else if (selectedLocation === "Petrovac"){
+                form4.transfers_arrival = "13073";
+            }
+            else if (selectedLocation === "Kolašin"){
+                form4.transfers_arrival = "11864";
+            }
+            else if (selectedLocation === "Airport Dubrovnik (DBV)"){
+                form4.transfers_arrival = "13786";
+            }
+            else if (selectedLocation === "Dubrovnik"){
+                form4.transfers_arrival = "11846";
+            }
+            else if (selectedLocation === "Airport Tirana (TIA)"){
+                form4.transfers_arrival = "11845";
+            }
+            else if (selectedLocation === "Durmitor/Žabljak"){
+                form4.transfers_arrival = "11844";
+            }
+            else if (selectedLocation === "Monastery Ostrog"){
+                form4.transfers_arrival = "11842";
+            }
+            else if (selectedLocation === "Skadar Lake"){
+                form4.transfers_arrival = "11841";
+            }
+            else if (selectedLocation === "Bar"){
+                form4.transfers_arrival = "11840";
+            }
+            else if (selectedLocation === "Kotor"){
+                form4.transfers_arrival = "11838";
+            }
+            else if (selectedLocation === "Perast"){
+                form4.transfers_arrival = "11837";
+            }
+            else if (selectedLocation === "Cetinje"){
+                form4.transfers_arrival = "11836";
+            }
+            else if (selectedLocation === "Herceg Novi"){
+                form4.transfers_arrival = "11835";
+            }
+            else if (selectedLocation === "Tivat"){
+                form4.transfers_arrival = "11834";
+            }
+            else if (selectedLocation === "Ulcinj"){
+                form4.transfers_arrival = "11573";
+            }
+            else if (selectedLocation === "Budva"){
+                form4.transfers_arrival = "11752";
+            }
+            else if (selectedLocation === "Podgorica"){
+                form4.transfers_arrival = "11751";
+            }
+            else {
+                console.log("Nothing")
+            }
+
             dropdown.style.display = "none";
         }
     });
@@ -908,24 +1104,23 @@ function functionForButton3(){
 
 function functionForButton4(){
     var base_url = 'https://transfermontenegro.me/booking';
-    // pitanje za service_type_id=1
-    var query_parameters = '?' + '&pickup_date=' + form4.transfers_date + '&pickup_time=' + form4.transfers_pickUpTime +  ;
+    var query_parameters = '?' + '&pickup_date=' + form4.transfers_date + '&pickup_time=' + form4.transfers_pickUpTime + '&fixed_location_pickup_id=' + form4.transfers_arrival + '&fixed_location_dropoff_id=' + form4.transfers_departure;
     url = base_url + query_parameters;
     console.log(url)
     window.location.href = url
 }
 
 function functionForButton5(){
-    var base_url = 'https://montenegrotour.me/en';
-    var query_parameters
+    var base_url = 'https://montenegrotour.me/en/tours';
+    var query_parameters = '?' + 'q=' + form5.thingsToDo_goingTo;
     url = base_url + query_parameters;
     console.log(url)
     window.location.href = url
 }
 
 function functionForButton6(){
-    var base_url = 'https://charter.me/en';
-    var query_parameters
+    var base_url = 'https://charter.me/en/charter';
+    var query_parameters = '?' + 'l=' + form6.charter_destination + '&from=' + form6.charter_arrivalDate + '&to=' + form6.charter_departureDate + '&type_name=' + form6.charter_type + form6.charter_guests
     url = base_url + query_parameters;
     console.log(url)
     window.location.href = url
