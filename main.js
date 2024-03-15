@@ -18,6 +18,8 @@ let form3 = {
     cars_toDate: "",
     cars_pickUpTime: "",
     cars_dropOffTime: "",
+    cars_fromDateFormat: "",
+    cars_toDateFormat: "",
 };
 
 let form4 = {
@@ -322,6 +324,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
             } else if (tabId === 'tab3') {
                 form3.cars_fromDate = startDateValue;
+                var dataString = startDateValue;
+                var parts = dataString.split("-");
+                var newFormat = parts[2] + "/" + parts[1] + "/" + parts[0];
+                form3.cars_fromDateFormat = newFormat;
             } else if (tabId === 'tab4') {
                 form4.transfers_date = startDateValue;
                 var dataString = startDateValue;
@@ -348,6 +354,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     form2.villas_toDateFormat = newFormat;
                 } else if (tabId === 'tab3') {
                     form3.cars_toDate = endDateValue;
+                    var dataString = endDateValue;
+                    var parts = dataString.split("-");
+                    var newFormat = parts[2] + "/" + parts[1] + "/" + parts[0];
+                    form3.cars_toDateFormat = newFormat;
                 } else if (tabId === 'tab6') {
                     form6.charter_departureDate = endDateValue;
                 } else {
@@ -387,31 +397,31 @@ document.addEventListener("DOMContentLoaded", function () {
             else if (selectedLocation === "Porto Montenegro") {
                 form3.cars_pickUp = "208";
             }
-            else if (selectedLocation === "Nikki Beach Tivat ") {
+            else if (selectedLocation === "Nikki Beach Tivat") {
                 form3.cars_pickUp = "211";
             }
-            else if (selectedLocation === "Petrovac - Hotel Palas ") {
+            else if (selectedLocation === "Petrovac - Hotel Palas") {
                 form3.cars_pickUp = "118";
             }
-            else if (selectedLocation === "Becici ") {
+            else if (selectedLocation === "Becici") {
                 form3.cars_pickUp = "180";
             }
-            else if (selectedLocation === "Bip Hotel ") {
+            else if (selectedLocation === "Bip Hotel") {
                 form3.cars_pickUp = "206";
             }
-            else if (selectedLocation === "Iberostar Bellevue ") {
+            else if (selectedLocation === "Iberostar Bellevue") {
                 form3.cars_pickUp = "213";
             }
-            else if (selectedLocation === "Portonovi Resort ") {
+            else if (selectedLocation === "Portonovi Resort") {
                 form3.cars_pickUp = "207";
             }
-            else if (selectedLocation === "Iberostar ") {
+            else if (selectedLocation === "Iberostar") {
                 form3.cars_pickUp = "218";
             }
-            else if (selectedLocation === "Bijela ") {
+            else if (selectedLocation === "Bijela") {
                 form3.cars_pickUp = "220";
             }
-            else if (selectedLocation === "Kotor Downtown ") {
+            else if (selectedLocation === "Kotor Downtown") {
                 form3.cars_pickUp = "181";
             }
             else if (selectedLocation === "Huma Kotor Bay Hotel & Villas") {
@@ -420,10 +430,10 @@ document.addEventListener("DOMContentLoaded", function () {
             else if (selectedLocation === "Kotor Marina") {
                 form3.cars_pickUp = "216";
             }
-            else if (selectedLocation === "Prčanj ") {
+            else if (selectedLocation === "Prčanj") {
                 form3.cars_pickUp = "223";
             }
-            else if (selectedLocation === "Bar ") {
+            else if (selectedLocation === "Bar") {
                 form3.cars_pickUp = "172";
             }
             else if (selectedLocation === "Kolasin") {
@@ -432,10 +442,10 @@ document.addEventListener("DOMContentLoaded", function () {
             else if (selectedLocation === "Kolasin") {
                 form3.cars_pickUp = "214";
             }
-            else if (selectedLocation === "Hotel Lazaro  ") {
+            else if (selectedLocation === "Hotel Lazaro") {
                 form3.cars_pickUp = "215";
             }
-            else if (selectedLocation === "Hotel Keto ") {
+            else if (selectedLocation === "Hotel Keto") {
                 form3.cars_pickUp = "221";
             }
             else if (selectedLocation === "Hotel Hilton") {
@@ -542,7 +552,7 @@ document.addEventListener("DOMContentLoaded", function () {
             else if (selectedLocation === "Kolasin") {
                 form3.cars_samePickUp = "214";
             }
-            else if (selectedLocation === "Hotel Lazaro ") {
+            else if (selectedLocation === "Hotel Lazaro") {
                 form3.cars_samePickUp = "215";
             }
             else if (selectedLocation === "Hotel Keto") {
@@ -551,7 +561,6 @@ document.addEventListener("DOMContentLoaded", function () {
             else if (selectedLocation === "Hotel Hilton") {
                 form3.cars_samePickUp = "222";
             }
-
             else {
                 console.log("Nothing")
             }
@@ -1091,7 +1100,7 @@ function functionForButton2() {
 
 function functionForButton3() {
     var base_url = 'https://www.montenegrocar.me/en/reservation/vehicles/';
-    var query_parameters = '?' + 'poslovnica_od=' + form3.cars_pickUp + '&poslovnica_do=' + form3.cars_samePickUp + '&date_from=' + form3.cars_fromDate + '&time_from=' + form3.cars_pickUpTime + '&date_to=' + form3.cars_toDate + '&time_to=' + form3.cars_dropOffTime;
+    var query_parameters = '?' + 'poslovnica_od=' + form3.cars_pickUp + '|0' + '&poslovnica_do=' + form3.cars_samePickUp + '|0' + '&date_from=' + form3.cars_fromDateFormat + '&time_from=' + form3.cars_pickUpTime + '&date_to=' + form3.cars_toDateFormat + '&time_to=' + form3.cars_dropOffTime;
     url = base_url + query_parameters;
     console.log(url)
     window.location.href = url
