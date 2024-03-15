@@ -333,8 +333,8 @@ form input[type=button] {
     height: 30px;
 }
 
-.buttons-travelers button:hover, 
-.button-finTravelers button:hover, 
+.buttons-travelers button:hover,
+.button-finTravelers button:hover,
 .button-fin-guests-charter button:hover {
     cursor: pointer;
     background-color: rgba(202, 197, 197, 0.822);
@@ -348,7 +348,7 @@ form input[type=button] {
     font-size: smaller;
 }
 
-.button-finTravelers button, 
+.button-finTravelers button,
 .button-fin-guests-charter button {
     background-color: #0172df;
     border: none;
@@ -360,7 +360,7 @@ form input[type=button] {
     width: 45%;
 }
 
-.button-finTravelers button:hover, 
+.button-finTravelers button:hover,
 .button-fin-guests-charter button:hover {
     background-color: #4db6f0;
 }
@@ -399,7 +399,7 @@ form input[type=button] {
 .nav li a span {
     margin-right: 10px;
 }
-  
+
 #myDropdown2 {
     display: none;
 }
@@ -424,8 +424,8 @@ form input[type=button] {
     display: none;
 }
 
-#dropdown-for-cars-pickUpTime, 
-#dropdown-for-cars-dropOffTime, 
+#dropdown-for-cars-pickUpTime,
+#dropdown-for-cars-dropOffTime,
 #dropdown-for-transfers-pickUpTime {
     left: 0;
     min-width: 100px;
@@ -434,4 +434,3 @@ form input[type=button] {
 .hiddenSpanCharter {
     visibility: hidden;
 }
-
