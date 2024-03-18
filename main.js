@@ -20,6 +20,8 @@ let form3 = {
     cars_dropOffTime: "",
     cars_fromDateFormat: "",
     cars_toDateFormat: "",
+    cars_catPickId: "",
+    cars_samePickUp: "",
 };
 
 let form4 = {
@@ -31,7 +33,10 @@ let form4 = {
 };
 
 let form5 = {
-    thingsToDo_goingTo: "",
+    thingsToDo_destinations: "",
+    thingsToDo_destinationsID: "",
+    thingsToDo_activities: "",
+    thingsToDo_activitiesID: "",
 };
 
 let form6 = {
@@ -391,6 +396,26 @@ document.addEventListener("DOMContentLoaded", function () {
             var selectedLocation = event.target.textContent;
             inputField.value = selectedLocation;
 
+            var parentDiv = event.target.closest('div');
+            if (parentDiv.id === "cat-tivatAirport") {
+                form3.cars_catPickId = "224";
+            } 
+            else if (parentDiv.id === "cat-budvaDowntown") {
+                form3.cars_catPickId = "112";
+            } 
+            else if (parentDiv.id === "cat-hercegNoviDowntown") {
+                form3.cars_catPickId = "111";
+            } 
+            else if (parentDiv.id === "cat-hyattRegencyKotor") {
+                form3.cars_catPickId = "198";
+            } 
+            else if (parentDiv.id === "cat-podgoricaDowntown") {
+                form3.cars_catPickId = "109";
+            } 
+            else {
+                console.log("Odabrana lokacija nije unutar diva.");
+            }
+
             if (selectedLocation === "Tivat Bus Station") {
                 form3.cars_pickUp = "205";
             }
@@ -500,6 +525,26 @@ document.addEventListener("DOMContentLoaded", function () {
         if (event.target.tagName === "A") {
             var selectedLocation = event.target.textContent;
             inputField.value = selectedLocation;
+
+            var parentDiv = event.target.closest('div');
+            if (parentDiv.id === "cat-tivatAirport") {
+                form3.cars_catSameId = "224";
+            } 
+            else if (parentDiv.id === "cat-budvaDowntown") {
+                form3.cars_catSameId = "112";
+            } 
+            else if (parentDiv.id === "cat-hercegNoviDowntown") {
+                form3.cars_catSameId = "111";
+            } 
+            else if (parentDiv.id === "cat-hyattRegencyKotor") {
+                form3.cars_catSameId = "198";
+            } 
+            else if (parentDiv.id === "cat-podgoricaDowntown") {
+                form3.cars_catSameId = "109";
+            } 
+            else {
+                console.log("Odabrana lokacija nije unutar diva.");
+            }
 
             if (selectedLocation === "Tivat Bus Station") {
                 form3.cars_samePickUp = "205";
@@ -941,6 +986,9 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     var inputField = document.getElementById("inputForThingToDo");
     var dropdown = document.getElementById("myDropdownForThingToDo");
+    var firstDiv_vrOne = "Lake Skadar";
+    var secondDiv_vrTwo = "Fishing";
+    var selectedValues = [];
 
     inputField.addEventListener("click", function () {
         dropdown.style.display = "block";
@@ -949,18 +997,90 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("click", function (event) {
         if (!dropdown.contains(event.target) && event.target !== inputField) {
             dropdown.style.display = "none";
+            inputField.value = selectedValues.join(", ");
         }
     });
 
     dropdown.addEventListener("click", function (event) {
         if (event.target.tagName === "A") {
             var selectedValue = event.target.textContent;
-            inputField.value = selectedValue;
-            form5.thingsToDo_goingTo = selectedValue;
-            dropdown.style.display = "none";
+            if (selectedValues.includes(selectedValue)) {
+                var index = selectedValues.indexOf(selectedValue);
+                selectedValues.splice(index, 1);
+            } else {
+                selectedValues.push(selectedValue);
+            }
+
+            var parentDiv = event.target.parentNode.id;
+            if (parentDiv === "cat-thingsDestinations") {
+                firstDiv_vrOne = selectedValues[0];
+                form5.thingsToDo_destinations = firstDiv_vrOne;
+            } else if (parentDiv === "cat-thingsActivities") {
+                secondDiv_vrTwo = selectedValues[1];
+                form5.thingsToDo_activities = secondDiv_vrTwo;
+            }
+
+            // for destinations - id
+
+            if (firstDiv_vrOne === "Durmitor") {
+                firstDiv_vrOne = "6";
+                form5.thingsToDo_destinations = "Durmitor";
+            }
+            else if (firstDiv_vrOne === "Kotor") {
+                firstDiv_vrOne = "7";
+            }
+            else if (firstDiv_vrOne === "Budva") {
+                firstDiv_vrOne = "18";
+            }
+            else if (firstDiv_vrOne === "Prokletije") {
+                firstDiv_vrOne = "19";
+            }
+            else if (firstDiv_vrOne === "Lake Skadar") {
+                firstDiv_vrOne = "20";
+            }
+            else if (firstDiv_vrOne === "Ada Bojana") {
+                firstDiv_vrOne = "21";
+            }
+            else if (firstDiv_vrOne === "Tara river") {
+                firstDiv_vrOne = "22";
+            }
+            else {
+                console.log("/")
+            }
+
+
+            // for activities - id
+
+            if (secondDiv_vrTwo === "Rafting") {
+                secondDiv_vrTwo = "1";
+            }
+            else if (secondDiv_vrTwo === "Fishing") {
+                secondDiv_vrTwo = "2";
+            }
+            else if (secondDiv_vrTwo === "Hiking") {
+                secondDiv_vrTwo = "3";
+            }
+            else if (secondDiv_vrTwo === "Kayaking") {
+                secondDiv_vrTwo = "4";
+            }
+            else if (secondDiv_vrTwo === "Birdwatching") {
+                secondDiv_vrTwo = "5";
+            }
+            else {
+                console.log("/")
+            }
+
+            form5.thingsToDo_destinationsID = firstDiv_vrOne;
+            form5.thingsToDo_activitiesID = secondDiv_vrTwo;
+
+            inputField.value = selectedValues.join(", ");
+            if (selectedValues.length >= 2) {
+                dropdown.style.display = "none";
+            }
         }
     });
 });
+
 
 // charter
 
@@ -1100,7 +1220,7 @@ function functionForButton2() {
 
 function functionForButton3() {
     var base_url = 'https://www.montenegrocar.me/en/reservation/vehicles/';
-    var query_parameters = '?' + 'poslovnica_od=' + form3.cars_pickUp + '|0' + '&poslovnica_do=' + form3.cars_samePickUp + '|0' + '&date_from=' + form3.cars_fromDateFormat + '&time_from=' + form3.cars_pickUpTime + '&date_to=' + form3.cars_toDateFormat + '&time_to=' + form3.cars_dropOffTime;
+    var query_parameters = '?' + 'poslovnica_od=' + form3.cars_catPickId + '%7C' + form3.cars_pickUp + '&poslovnica_do=' + form3.cars_catSameId + '%7C' + form3.cars_samePickUp + '&date_from=' + form3.cars_fromDateFormat + '&time_from=' + form3.cars_pickUpTime + '&date_to=' + form3.cars_toDateFormat + '&time_to=' + form3.cars_dropOffTime;
     url = base_url + query_parameters;
     console.log(url)
     window.location.href = url
@@ -1116,7 +1236,7 @@ function functionForButton4() {
 
 function functionForButton5() {
     var base_url = 'https://montenegrotour.me/en/tours';
-    var query_parameters = '?' + 'q=' + form5.thingsToDo_goingTo;
+    var query_parameters = '?' + 'q=' + form5.thingsToDo_destinations + '%2C+' + form5.thingsToDo_activities + '&locations%5B' + form5.thingsToDo_destinationsID + '%5D=' + form5.thingsToDo_destinationsID + '&themes%5B' + form5.thingsToDo_activitiesID + '%5D=' + form5.thingsToDo_activitiesID;
     url = base_url + query_parameters;
     console.log(url)
     window.location.href = url
