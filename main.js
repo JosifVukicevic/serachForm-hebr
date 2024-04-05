@@ -1214,38 +1214,39 @@ function functionForButton2() {
     var base_url = 'https://montenegrovillas.com/en/villas';
     var query_parameters = '?q=' + form2.villas_goingTo + '&from=' + form2.villas_fromDate + '&to=' + form2.villas_toDate + `&dates=${form2.villas_fromDateFormat} to ${form2.villas_toDateFormat}` + form2.villas_toDate + '&type=' + form2.villas_type;
     url = base_url + query_parameters + form2.villas_travelers;
-    console.log(url)
-    window.location.href = url
+    console.log(url);
+    window.open(url);
 }
 
 function functionForButton3() {
     var base_url = 'https://www.montenegrocar.me/en/reservation/vehicles/';
     var query_parameters = '?' + 'poslovnica_od=' + form3.cars_catPickId + '%7C' + form3.cars_pickUp + '&poslovnica_do=' + form3.cars_catSameId + '%7C' + form3.cars_samePickUp + '&date_from=' + form3.cars_fromDateFormat + '&time_from=' + form3.cars_pickUpTime + '&date_to=' + form3.cars_toDateFormat + '&time_to=' + form3.cars_dropOffTime;
     url = base_url + query_parameters;
-    console.log(url)
-    window.location.href = url
+    console.log(url);
+    window.open(url);
 }
 
 function functionForButton4() {
     var base_url = 'https://transfermontenegro.me/booking';
     var query_parameters = '?' + 'service_type_id=1' + '&pickup_date=' + form4.transfers_dateFormat + '&pickup_time=' + form4.transfers_pickUpTime + '&fixed_location_pickup_id=' + form4.transfers_departure + '&fixed_location_dropoff_id=' + form4.transfers_arrival;
     url = base_url + query_parameters;
-    console.log(url)
-    window.location.href = url
+    console.log(url);
+    window.open(url);
 }
+
 
 function functionForButton5() {
     var base_url = 'https://montenegrotour.me/en/tours';
     var query_parameters = '?' + 'q=' + form5.thingsToDo_destinations + '%2C+' + form5.thingsToDo_activities + '&locations%5B' + form5.thingsToDo_destinationsID + '%5D=' + form5.thingsToDo_destinationsID + '&themes%5B' + form5.thingsToDo_activitiesID + '%5D=' + form5.thingsToDo_activitiesID;
     url = base_url + query_parameters;
-    console.log(url)
-    window.location.href = url
+    console.log(url);
+    window.open(url);
 }
 
 function functionForButton6() {
     var base_url = 'https://charter.me/en/charter';
     var query_parameters = '?' + 'l=' + form6.charter_destination + '&from=' + form6.charter_arrivalDate + '&to=' + form6.charter_departureDate + '&type_name=' + form6.charter_type + form6.charter_guests
     url = base_url + query_parameters;
-    console.log(url)
-    window.location.href = url
+    console.log(url);
+    window.open(url);
 }
