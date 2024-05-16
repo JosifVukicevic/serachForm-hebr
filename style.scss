@@ -1,0 +1,488 @@
+body {
+  direction: rtl;
+  font-family: openSansHebrew, Arial, sans-serif;
+  margin: 0;
+
+  .montenegro-wizard-container {
+    width: 80%;
+    margin: 0 auto;
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      display: inline-block;
+      background-color: hsl(300, 3%, 94%);
+      padding: 10px 20px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      margin-left: 2px;
+      height: auto;
+      width: auto;
+      cursor: pointer;
+      div {
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
+
+    ul li div img {
+      width: 27px;
+      /*display: table-cell;*/
+    }
+
+    ul li div {
+      text-decoration: none;
+      color: #d20018;
+      cursor: pointer;
+    }
+
+    .nav-item {
+      cursor: pointer;
+    }
+    .active.nav-item div {
+      color: hsl(300, 3%, 94%);
+    }
+
+    li.active {
+      background-color: #d20018;
+      color: white;
+    }
+
+    li:hover {
+      background-color: #d20018;
+      color: white;
+    }
+
+    li:hover div {
+      color: white;
+    }
+
+    .content-form {
+      background-color: hsl(300, 3%, 94%);
+      border-radius: 12px 0 12px 12px;
+      position: relative;
+      border-top: 2px solid #d20018;
+      min-height: 130px;
+      padding: 15px 36px 15px 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-group {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      gap: 9px;
+      #departure-transfers {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    .input-group div label {
+      color: #717171;
+      font-size: 14px;
+    }
+
+    form input,
+    form input[type="button"] {
+      border-radius: 3px;
+      border: 1px solid rgba(201, 197, 197, 0.616);
+      height: 40px;
+      width: 100%;
+    }
+
+    .initial-div-i-fields {
+      background-color: white;
+      border-radius: 5px;
+      width: 100%;
+    }
+
+    .div-for-time {
+      background-color: white;
+      border-radius: 5px;
+      width: 100px;
+    }
+
+    .input-for-time::placeholder,
+    .input-for-time::placeholder {
+      text-align: center;
+    }
+
+    #main-div-for-pickTime,
+    #main-div-for-dropTime {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .container-for-tab {
+      display: none;
+    }
+
+    .container-for-tab.active {
+      display: block;
+    }
+
+    .main-div-i-fields {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      width: 100%;
+      height: 40px;
+      position: relative;
+      border: 1px solid hsla(0, 0%, 66%, 0.5);
+      border-radius: 5px;
+    }
+
+    .main-div-i-fields:active {
+      outline: 1px solid hsla(0, 0%, 63%, 0.5);
+    }
+
+    .main-div-i-fields input {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 30px;
+      outline: none;
+      border: none;
+      background-color: transparent;
+    }
+
+    .icons-in-form {
+      height: 25px;
+      width: 25px;
+      margin-right: 5px;
+      margin-left: 3px;
+    }
+
+    .icon-choose {
+      width: 10px;
+      height: 8px;
+      margin-left: 10px;
+      margin-right: 15px;
+    }
+
+    .input-for-date {
+      width: 60px;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      text-align: center;
+      margin-left: 5px;
+      margin-right: 8px;
+    }
+
+    .input-for-date:hover,
+    .input-for-date:focus,
+    .input-for-time:hover,
+    .input-for-time:focus {
+      cursor: pointer;
+      caret-color: transparent;
+      box-shadow: 0 0 5px rgba(156, 156, 165, 0.5);
+    }
+
+    .search-button {
+      direction: ltr;
+      margin-left: 22px;
+      /*margin-right: auto;*/
+    }
+
+    .search-button button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 120px;
+      height: 40px;
+      background-color: #d20018;
+      border: 1px solid hsla(0, 0%, 66%, 0.5);
+      border-radius: 5px;
+    }
+
+    .search-button button:hover,
+    .search-button label:hover {
+      cursor: pointer;
+    }
+
+    .search-button button:hover {
+      background-color: #f50420;
+    }
+
+    .search-button button label {
+      color: white;
+      font-size: 17px;
+    }
+
+    .search-button button img {
+      margin-right: 15px;
+      width: 20px;
+    }
+
+    #travelers-div:hover,
+    #travelers-div div input:hover,
+    #choose-type-id:hover,
+    #choose-type-id div div input:hover #pickTime-div:hover,
+    #dropTime-div:hover {
+      cursor: pointer;
+    }
+
+    #travelers-div div input:focus,
+    #choose-type-id div div input:focus,
+    #pickTime-div:focus,
+    #dropTime-div:focus {
+      caret-color: transparent;
+      box-shadow: 0 0 5px rgba(156, 156, 165, 0.5);
+    }
+
+    /* Dropdown prozori */
+
+    .dropdown-content {
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 200px;
+      border: 1px solid #ddd;
+      z-index: 1;
+      top: 105%;
+      max-height: 200px;
+      overflow-y: scroll;
+      border-radius: 4px;
+    }
+
+    .show {
+      visibility: visible;
+    }
+
+    .dropdown-content div {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #006fca;
+      color: white;
+      cursor: pointer;
+    }
+
+    .travelers-content {
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 200px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      z-index: 1;
+      top: 105%;
+      padding: 5px 15px 10px 15px;
+    }
+
+    .sec-travelers {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    .spanText {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .button-finTravelers,
+    .button-fin-guests-charter {
+      direction: ltr;
+    }
+
+    .hiddenSpan {
+      visibility: hidden;
+    }
+
+    .travelers-content div h3 {
+      color: #d20018;
+    }
+
+    .travelers-content:hover {
+      cursor: default;
+    }
+
+    .buttons-travelers {
+      display: flex;
+      align-items: center;
+      border: 2px solid #afaeae;
+      margin-right: auto;
+      border-radius: 4px;
+    }
+
+    .buttons-travelers button {
+      display: flex;
+    }
+
+    .button-plus {
+      border: none;
+      border-left: 1px solid #afaeae;
+    }
+
+    .button-minus {
+      border: none;
+      border-right: 1px solid #afaeae;
+    }
+
+    .buttons-travelers span {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .buttons-travelers button img {
+      height: 30px;
+    }
+
+    .buttons-travelers button:hover,
+    .button-finTravelers button:hover,
+    .button-fin-guests-charter button:hover {
+      cursor: pointer;
+      background-color: rgba(202, 197, 197, 0.822);
+    }
+
+    .spanText span:nth-last-child(1) {
+      color: #717171;
+    }
+
+    .spanText {
+      font-size: smaller;
+    }
+
+    .button-finTravelers button,
+    .button-fin-guests-charter button {
+      background-color: #0172df;
+      border: none;
+      border-radius: 4px;
+      text-align: center;
+      font-size: 17px;
+      color: white;
+      line-height: 30px;
+      width: 45%;
+    }
+
+    .button-finTravelers button:hover,
+    .button-fin-guests-charter button:hover {
+      background-color: #4db6f0;
+    }
+
+    .checkbox-travelers {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      direction: ltr;
+    }
+
+    .checkbox {
+      width: 30px;
+    }
+
+    .checkbox-travelers h3 {
+      margin-left: 23%;
+    }
+
+    #myDropdown3 {
+      visibility: hidden;
+    }
+
+    /*kalendar*/
+
+    .width-auto input {
+      width: auto;
+    }
+
+    .nav li div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav li div span {
+      margin-right: 10px;
+    }
+
+    #myDropdown2 {
+      display: none;
+    }
+
+    #myDropdown1 {
+      display: none;
+    }
+
+    #myDropdown2 div {
+      display: block;
+    }
+
+    #myDropdown1 div {
+      display: block;
+    }
+
+    #dropdownTypeCharter {
+      display: none;
+    }
+
+    .tabs1 {
+      display: none;
+    }
+
+    #dropdown-for-cars-pickUpTime,
+    #dropdown-for-cars-dropOffTime,
+    #dropdown-for-transfers-pickUpTime {
+      left: 0;
+      min-width: 100px;
+      display: flex;
+      flex-direction: column;
+    }
+    #dropdown-for-transfers-pickUpTime {
+    }
+
+    .hiddenSpanCharter {
+      visibility: hidden;
+    }
+  }
+  #fake-loader {
+    width: 700px;
+    height: 300px;
+    background-color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    display: none;
+    padding: 40px;
+    box-sizing: border-box;
+    border: 2px solid #d20018;
+    border-radius: 20px;
+    #images-block {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      img:nth-of-type(1) {
+        height: 30px;
+      }
+      img:nth-of-type(2) {
+        height: 50px;
+      }
+
+      img:nth-of-type(3) {
+        height: 130px;
+      }
+    }
+    #fake-loader-link {
+      color: blue;
+      text-decoration: underline;
+    }
+  }
+}
