@@ -329,7 +329,7 @@
                             <div>
                                 <label>לאסוף</label>
                                 <div class="initial-div-i-fields">
-                                    <div class="main-div-i-fields">
+                                    <div class="main-div-i-fields" id="checkin-required">
                                         <img src="Icons/location_icon.png" class="icons-in-form">
                                         <input type="text" placeholder="לאסוף" id="pickUp">
                                         <div id="myDropdown-pickUp" class="dropdown-content">
@@ -373,11 +373,12 @@
                                         </div>
                                     </div>
                                 </div>
+                                <span class="required-text" id="requiredText-first">נדרש</span>
                             </div>
-                            <div>
+                            <div class="respons-div-for-required">
                                 <label>אותו דבר כמו איסוף</label>
                                 <div class="initial-div-i-fields">
-                                    <div class="main-div-i-fields">
+                                    <div class="main-div-i-fields" id="checkout-required">
                                         <img src="Icons/location_icon.png" class="icons-in-form">
                                         <input type="text" placeholder="אותו דבר כמו איסוף" id="same-pickUp">
                                         <div id="myDropdown-samePickUp" class="dropdown-content">
@@ -421,8 +422,9 @@
                                         </div>
                                     </div>
                                 </div>
+                                <span class="required-text" id="requiredText-second">נדרש</span>
                             </div>
-                            <div>
+                            <div class="respons-div-for-required">
                                 <label>תאריכים</label>
                                 <div class="initial-div-i-fields">
                                     <div class="main-div-i-fields">
@@ -495,7 +497,7 @@
                             <div>
                                 <label>יְצִיאָה</label>
                                 <div class="initial-div-i-fields">
-                                    <div class="main-div-i-fields">
+                                    <div class="main-div-i-fields" id="departure-mainDiv">
                                         <img src="Icons/location_icon.png" class="icons-in-form">
                                         <input id="departureTransfers" type="text" placeholder="יציאות">
                                         <div id="departure-transfers" class="dropdown-content">
@@ -522,11 +524,12 @@
                                         </div>
                                     </div>
                                 </div>
+                                <span class="required-text" id="requiredText-third">נדרש</span>
                             </div>
-                            <div>
+                            <div class="respons-div-for-required">
                                 <label>הַגָעָה</label>
                                 <div class="initial-div-i-fields">
-                                    <div class="main-div-i-fields">
+                                    <div class="main-div-i-fields" id="arrival-mainDiv">
                                         <img src="Icons/location_icon.png" class="icons-in-form">
                                         <input id="arrivalTransefrs" type="text" placeholder="הַגָעָה">
                                         <div id="arrival-transfers" class="dropdown-content">
@@ -553,18 +556,20 @@
                                         </div>
                                     </div>
                                 </div>
+                                <span class="required-text" id="requiredText-fourth">נדרש</span>
                             </div>
-                            <div>
+                            <div class="respons-div-for-required">
                                 <label>תאריכים</label>
                                 <div class="initial-div-i-fields">
-                                    <div class="main-div-i-fields">
+                                    <div class="main-div-i-field" id="dateTransfer-mainDiv">
                                         <div class="width-auto">
                                             <input class="input-for-date" id="startDate-tab4" type="date">
                                         </div>
                                     </div>
                                 </div>
+                                <span class="required-text" id="requiredText-fifth">נדרש</span>
                             </div>
-                            <div id="main-div-for-pickTime">
+                            <div id="main-div-for-pickTime" class="respons-div-for-required ">
                                 <label>זמן איסוף</label>
                                 <div class="div-for-time" id="pickTime-div">
                                     <div class="main-div-i-fields">

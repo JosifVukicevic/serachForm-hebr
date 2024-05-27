@@ -435,3 +435,36 @@ form input[type=button] {
     visibility: hidden;
     
 }
+
+
+/* validation */
+
+#requiredText-first {
+    color: red;
+    position: absolute;
+    visibility: hidden;
+}
+
+#requiredText-second {
+    color: red;
+    position: absolute;
+    visibility: hidden;
+}
+
+#requiredText-third {
+    color: red;
+    position: absolute;
+    visibility: hidden;
+}
+
+#requiredText-fourth {
+    color: red;
+    position: absolute;
+    visibility: hidden;
+}
+
+#requiredText-fifth{
+    color: red;
+    position: absolute;
+    visibility: hidden;
+}

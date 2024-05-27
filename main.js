@@ -298,15 +298,6 @@ window.onload = function () {
         console.log(formatData());
         document.getElementById('valueForTravelers').value = form2.villas_numberTravelers;
     });
-    /*
-    var dropdownContent = document.getElementById('myDropdown3');
-    var applyButton = document.querySelector('.button-finTravelers button');
-
-    applyButton.addEventListener('click', function () {
-        console.log("pronadjeno")
-        dropdownContent.style.visibility = "hidden";
-    });
-    */
 };
 
 // kalendar
@@ -315,8 +306,44 @@ document.addEventListener('DOMContentLoaded', function () {
         var startDateInput = document.getElementById('startDate-' + tabId);
         var endDateInput = document.getElementById('endDate-' + tabId);
 
+        if (tabId === 'tab3') {
+            var now = new Date();
+            var startDate = new Date(now);
+            startDate.setDate(now.getDate() + 1);
+
+            var endDate = new Date(startDate);
+            endDate.setDate(startDate.getDate() + 7); 
+
+            var formattedStartDate = startDate.toISOString().split('T')[0];
+            var formattedEndDate = endDate.toISOString().split('T')[0];
+
+            startDateInput.value = formattedStartDate;
+            endDateInput.value = formattedEndDate;
+
+            // Set initial form3 values
+            form3.cars_fromDate = formattedStartDate;
+            form3.cars_fromDateFormat = startDate.toLocaleDateString('en-GB').replace(/\//g, '/');
+
+            form3.cars_toDate = formattedEndDate;
+            form3.cars_toDateFormat = endDate.toLocaleDateString('en-GB').replace(/\//g, '/');
+
+        }
+
+        if (tabId === 'tab4') {
+            var now = new Date();
+            var startDate = new Date(now);
+            startDate.setDate(now.getDate());
+
+            var formattedStartDate = startDate.toISOString().split('T')[0];
+
+            startDateInput.value = formattedStartDate;
+            form4.transfers_date = formattedStartDate;
+            form4.transfers_dateFormat = startDate.toLocaleDateString('en-GB').replace(/\//g, '/');
+
+        }
+
         startDateInput.addEventListener('change', function () {
-            var startDateValue = startDateInput.value; // Ovdje postavljamo vrijednost startDateValue
+            var startDateValue = startDateInput.value;
             console.log('Start date for tab ' + tabId + ':', startDateValue);
 
             if (tabId === 'tab2') {
@@ -324,7 +351,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 var dataString = startDateValue;
                 var parts = dataString.split("-");
                 var newFormat = parts[2] + "/" + parts[1] + "/" + parts[0];
-
                 form2.villas_fromDateFormat = newFormat;
 
             } else if (tabId === 'tab3') {
@@ -342,13 +368,13 @@ document.addEventListener('DOMContentLoaded', function () {
             } else if (tabId === 'tab6') {
                 form6.charter_arrivalDate = startDateValue;
             } else {
-                console.log("Nothing")
+                console.log("Nothing");
             }
         });
 
         if (endDateInput) {
             endDateInput.addEventListener('change', function () {
-                var endDateValue = endDateInput.value; // Ovdje postavljamo vrijednost endDateValue
+                var endDateValue = endDateInput.value;
                 console.log('End date for tab ' + tabId + ':', endDateValue);
 
                 if (tabId === 'tab2') {
@@ -366,7 +392,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else if (tabId === 'tab6') {
                     form6.charter_departureDate = endDateValue;
                 } else {
-                    console.log("Nothing")
+                    console.log("Nothing");
                 }
             });
         }
@@ -377,6 +403,7 @@ document.addEventListener('DOMContentLoaded', function () {
         handleDateChanges(tabId);
     });
 });
+
 
 // TAB 3
 
@@ -399,19 +426,19 @@ document.addEventListener("DOMContentLoaded", function () {
             var parentDiv = event.target.closest('div');
             if (parentDiv.id === "cat-tivatAirport") {
                 form3.cars_catPickId = "224";
-            } 
+            }
             else if (parentDiv.id === "cat-budvaDowntown") {
                 form3.cars_catPickId = "112";
-            } 
+            }
             else if (parentDiv.id === "cat-hercegNoviDowntown") {
                 form3.cars_catPickId = "111";
-            } 
+            }
             else if (parentDiv.id === "cat-hyattRegencyKotor") {
                 form3.cars_catPickId = "198";
-            } 
+            }
             else if (parentDiv.id === "cat-podgoricaDowntown") {
                 form3.cars_catPickId = "109";
-            } 
+            }
             else {
                 console.log("Odabrana lokacija nije unutar diva.");
             }
@@ -529,19 +556,19 @@ document.addEventListener("DOMContentLoaded", function () {
             var parentDiv = event.target.closest('div');
             if (parentDiv.id === "cat-tivatAirport") {
                 form3.cars_catSameId = "224";
-            } 
+            }
             else if (parentDiv.id === "cat-budvaDowntown") {
                 form3.cars_catSameId = "112";
-            } 
+            }
             else if (parentDiv.id === "cat-hercegNoviDowntown") {
                 form3.cars_catSameId = "111";
-            } 
+            }
             else if (parentDiv.id === "cat-hyattRegencyKotor") {
                 form3.cars_catSameId = "198";
-            } 
+            }
             else if (parentDiv.id === "cat-podgoricaDowntown") {
                 form3.cars_catSameId = "109";
-            } 
+            }
             else {
                 console.log("Odabrana lokacija nije unutar diva.");
             }
@@ -669,6 +696,33 @@ document.addEventListener("DOMContentLoaded", function () {
 // funkcionalnosti za time - cars tab
 
 document.addEventListener("DOMContentLoaded", function () {
+    generateTimeOptions("dropdown-for-cars-pickUpTime");
+    generateTimeOptions("dropdown-for-cars-dropOffTime");
+    generateTimeOptions("dropdown-for-transfers-pickUpTime");
+
+    function generateTimeOptions(elementId) {
+        var dropdown = document.getElementById(elementId);
+
+        for (var hour = 0; hour <= 23; hour++) {
+            for (var minutes = 0; minutes <= 30; minutes += 30) {
+                var time = formatTime(hour) + ":" + formatTime(minutes);
+                var option = document.createElement("a");
+                option.setAttribute("href", "#");
+                option.textContent = time;
+                dropdown.appendChild(option);
+            }
+        }
+    }
+
+    function formatTime(time) {
+        return (time < 10 ? "0" : "") + time;
+    }
+});
+
+
+// funkcionalnosti za time - cars tab
+
+document.addEventListener("DOMContentLoaded", function () {
     var pickTimeDiv = document.getElementById("main-div-for-pickTime");
     var dropTimeDiv = document.getElementById("main-div-for-dropTime");
 
@@ -677,7 +731,29 @@ document.addEventListener("DOMContentLoaded", function () {
     var dropTimeInput = dropTimeDiv.querySelector(".input-for-time");
     var dropTimeDropdown = document.getElementById("dropdown-for-cars-dropOffTime");
 
-    var selectedTime;
+    function roundToNextHour(date) {
+        var newDate = new Date(date);
+        newDate.setHours(newDate.getHours() + 1);
+        newDate.setMinutes(0);
+        newDate.setSeconds(0);
+        newDate.setMilliseconds(0);
+        return newDate;
+    }
+
+    function formatTime(date) {
+        var hours = date.getHours().toString().padStart(2, '0');
+        var minutes = date.getMinutes().toString().padStart(2, '0');
+        return hours + ':' + minutes;
+    }
+
+    function setDefaultTime(input, formVariable) {
+        var now = new Date();
+        var roundedTime = roundToNextHour(now);
+        var formattedTime = formatTime(roundedTime);
+        input.value = formattedTime;
+        formVariable = formattedTime;
+        return formattedTime;
+    }
 
     function openDropdown(dropdown) {
         dropdown.style.display = "block";
@@ -687,9 +763,14 @@ document.addEventListener("DOMContentLoaded", function () {
         dropdown.style.display = "none";
     }
 
-    function setTime(input, time) {
+    function setTime(input, time, formVariable) {
         input.value = time;
+        formVariable = time;
+        return time;
     }
+
+    form3.cars_pickUpTime = setDefaultTime(pickTimeInput, form3.cars_pickUpTime);
+    form3.cars_dropOffTime = setDefaultTime(dropTimeInput, form3.cars_dropOffTime);
 
     pickTimeDiv.addEventListener("click", function () {
         openDropdown(pickTimeDropdown);
@@ -718,22 +799,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     pickTimeDropdown.addEventListener("click", function (event) {
         if (event.target.tagName === "A") {
-            selectedTime = event.target.textContent;
-            setTime(pickTimeInput, selectedTime);
-            form3.cars_pickUpTime = selectedTime;
+            var selectedTime = event.target.textContent;
+            form3.cars_pickUpTime = setTime(pickTimeInput, selectedTime, form3.cars_pickUpTime);
             closeDropdown(pickTimeDropdown);
         }
     });
 
     dropTimeDropdown.addEventListener("click", function (event) {
         if (event.target.tagName === "A") {
-            selectedTime = event.target.textContent;
-            setTime(dropTimeInput, selectedTime);
-            form3.cars_dropOffTime = selectedTime;
+            var selectedTime = event.target.textContent;
+            form3.cars_dropOffTime = setTime(dropTimeInput, selectedTime, form3.cars_dropOffTime);
             closeDropdown(dropTimeDropdown);
         }
     });
 });
+
+
 
 // tab 4 - transfers tab
 
@@ -961,6 +1042,14 @@ document.addEventListener("DOMContentLoaded", function () {
     var input = document.getElementById("pick-time-input-transfers");
     var dropdown = document.getElementById("dropdown-for-transfers-pickUpTime");
 
+    // Postavljanje defaultnog vremena
+    var currentTime = new Date();
+    var defaultHour = currentTime.getHours() + 1;
+    defaultHour = (defaultHour < 10 ? "0" : "") + defaultHour;
+    var defaultTime = defaultHour + ":00";
+    input.value = defaultTime;
+    form4.transfers_pickUpTime = input.value;
+
     input.addEventListener("click", function (event) {
         dropdown.style.display = "block";
         event.stopPropagation();
@@ -980,6 +1069,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
 
 // things to do
 
@@ -1219,19 +1309,91 @@ function functionForButton2() {
 }
 
 function functionForButton3() {
-    var base_url = 'https://www.montenegrocar.me/en/reservation/vehicles/';
-    var query_parameters = '?' + 'poslovnica_od=' + form3.cars_catPickId + '%7C' + form3.cars_pickUp + '&poslovnica_do=' + form3.cars_catSameId + '%7C' + form3.cars_samePickUp + '&date_from=' + form3.cars_fromDateFormat + '&time_from=' + form3.cars_pickUpTime + '&date_to=' + form3.cars_toDateFormat + '&time_to=' + form3.cars_dropOffTime;
-    url = base_url + query_parameters;
-    console.log(url);
-    window.open(url);
+    var inputFieldPickUp = document.getElementById("pickUp");
+    var inputFieldSamePickUp = document.getElementById("same-pickUp");
+    var requiredTextFirst = document.getElementById("requiredText-first");
+    var requiredTextSecond = document.getElementById("requiredText-second");
+    var mainDivFields1 = document.getElementById("checkin-required");
+    var mainDivFields2 = document.getElementById("checkout-required");
+
+    var valid = true;
+
+    // Provera Pick Up polja
+    if (inputFieldPickUp.value.trim() === "") {
+        requiredTextFirst.style.visibility = "visible";
+        mainDivFields1.style.border = "2px solid red";
+        valid = false;
+    } else {
+        requiredTextFirst.style.visibility = "hidden";
+        mainDivFields1.style.border = "none";
+    }
+
+    // Provera Drop Off polja
+    if (inputFieldSamePickUp.value.trim() === "") {
+        requiredTextSecond.style.visibility = "visible";
+        mainDivFields2.style.border = "2px solid red";
+        valid = false;
+    } else {
+        requiredTextSecond.style.visibility = "hidden";
+        mainDivFields2.style.border = "none";
+    }
+
+    if (valid) {
+        var base_url = 'https://www.montenegrocar.me/en/reservation/vehicles/';
+        var query_parameters = '?' + 'poslovnica_od=' + form3.cars_catPickId + '%7C' + form3.cars_pickUp + '&poslovnica_do=' + form3.cars_catSameId + '%7C' + form3.cars_samePickUp + '&date_from=' + form3.cars_fromDateFormat + '&time_from=' + form3.cars_pickUpTime + '&date_to=' + form3.cars_toDateFormat + '&time_to=' + form3.cars_dropOffTime;
+        var url = base_url + query_parameters;
+        console.log(url);
+        window.open(url);
+    }
 }
 
+
+
 function functionForButton4() {
-    var base_url = 'https://transfermontenegro.me/booking';
-    var query_parameters = '?' + 'service_type_id=1' + '&pickup_date=' + form4.transfers_dateFormat + '&pickup_time=' + form4.transfers_pickUpTime + '&fixed_location_pickup_id=' + form4.transfers_departure + '&fixed_location_dropoff_id=' + form4.transfers_arrival;
-    url = base_url + query_parameters;
-    console.log(url);
-    window.open(url);
+    var inputFieldPickUp = document.getElementById("departureTransfers");
+    var inputFieldSamePickUp = document.getElementById("arrivalTransefrs");
+    var requiredTextThird = document.getElementById("requiredText-third");
+    var requiredTextFourth = document.getElementById("requiredText-fourth");
+    var requiredTextFifth = document.getElementById("requiredText-fifth");
+    var inputDateTransf = document.getElementById("startDate-tab4");
+    var mainDivFields1 = document.getElementById("departure-mainDiv");
+    var mainDivFields2 = document.getElementById("arrival-mainDiv");
+    var mainDIvFields3 = document.getElementById("dateTransfer-mainDiv");
+
+    var valid = true;
+
+    // Provera Pick Up polja
+    if (inputFieldPickUp.value.trim() === "") {
+        requiredTextThird.style.visibility = "visible";
+        mainDivFields1.style.border = "2px solid red";
+        valid = false;
+    } else if (!inputDateTransf.value) {
+        requiredTextFifth.style.visibility = "visible";
+        mainDIvFields3.style.border = "2px solid red";
+        valid = false;
+    } else {
+        requiredTextThird.style.visibility = "hidden";
+        mainDivFields1.style.border = "none";
+    }
+
+    // Provera Drop Off polja
+    if (inputFieldSamePickUp.value.trim() === "") {
+        requiredTextFourth.style.visibility = "visible";
+        mainDivFields2.style.border = "2px solid red";
+        valid = false;
+    } else {
+        requiredTextFourth.style.visibility = "hidden";
+        mainDivFields2.style.border = "none";
+    }
+
+
+    if (valid) {
+        var base_url = 'https://transfermontenegro.me/booking';
+        var query_parameters = '?' + 'service_type_id=1' + '&pickup_date=' + form4.transfers_dateFormat + '&pickup_time=' + form4.transfers_pickUpTime + '&fixed_location_pickup_id=' + form4.transfers_departure + '&fixed_location_dropoff_id=' + form4.transfers_arrival;
+        url = base_url + query_parameters;
+        console.log(url);
+        window.open(url);
+    }
 }
 
 
