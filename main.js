@@ -1406,9 +1406,29 @@ function functionForButton5() {
 }
 
 function functionForButton6() {
-    var base_url = 'https://charter.me/en/charter';
-    var query_parameters = '?' + 'l=' + form6.charter_destination + '&from=' + form6.charter_arrivalDate + '&to=' + form6.charter_departureDate + '&type_name=' + form6.charter_type + form6.charter_guests
-    url = base_url + query_parameters;
-    console.log(url);
-    window.open(url);
+
+    var inputFieldPickUpYacht = document.getElementById("destinationInputCharter");
+    var charterLocationMainDiv = document.getElementById("charterLocation");
+    var requiredTextSixth = document.getElementById("requiredText-sixth");
+
+    var valid = true;
+
+    if (inputFieldPickUpYacht.value.trim() === "") {
+        requiredTextSixth.style.visibility = "visible";
+        charterLocationMainDiv.style.border = "2px solid red";
+        valid = false;
+    } else {
+        requiredTextSixth.style.visibility = "hidden";
+        charterLocationMainDiv.style.border = "none";
+    }
+
+
+    if (valid){
+        var base_url = 'https://charter.me/en/charter';
+        var query_parameters = '?' + 'l=' + form6.charter_destination + '&from=' + form6.charter_arrivalDate + '&to=' + form6.charter_departureDate + '&type_name=' + form6.charter_type + form6.charter_guests
+        url = base_url + query_parameters;
+        console.log(url);
+        window.open(url);
+    }
+    
 }

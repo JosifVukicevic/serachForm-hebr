@@ -468,3 +468,9 @@ form input[type=button] {
     position: absolute;
     visibility: hidden;
 }
+
+#requiredText-sixth {
+    color: red;
+    position: absolute;
+    visibility: hidden;
+}
