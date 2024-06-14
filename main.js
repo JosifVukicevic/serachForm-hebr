@@ -1424,11 +1424,50 @@ function functionForButton6() {
 
 
     if (valid){
+
+        // ID za destinacije
+
+        if (form6.charter_destination === "Porto Montenegro") {
+            form6.param_a = "131";
+        } else if (form6.charter_destination === "Marina Kotor") {
+            form6.param_a = "333";
+        } else if (form6.charter_destination === "Marina Solila") {
+            form6.param_a = "859";
+        } else if (form6.charter_destination === "Marina Lazure") {
+            form6.param_a = "1531";
+        } else {
+            console.log("Destinacija nema odgovarajuci ID.");
+        }
+
+        // ID za tip jahti
+
+        if (form6.charter_type === "Sailing yacht") {
+            form6.type_id = "15";
+        } else if (form6.charter_type === "Motoryacht") {
+            form6.type_id = "20";
+        } else if (form6.charter_type === "Catamaran") {
+            form6.type_id = "1";
+        } else if (form6.charter_type === "Power catamaran") {
+            form6.type_id = "13";
+        } else if (form6.charter_type === "Motor boat") {
+            form6.type_id = "10";
+        } else {
+            form6.type_id = "15";
+            console.log("Default tip.");
+        }
+
+
+        // Sort parametar
+
+        form6.sort = "sort_order desc";
+
         var base_url = 'https://charter.me/en/charter';
-        var query_parameters = '?' + 'l=' + form6.charter_destination + '&from=' + form6.charter_arrivalDate + '&to=' + form6.charter_departureDate + '&type_name=' + form6.charter_type + form6.charter_guests
+        var query_parameters = '?' + 'l=' + form6.charter_destination + '&r=' + '&a=' + form6.param_a + '&from=' + form6.charter_arrivalDate + '&to=' + form6.charter_departureDate + '&type_name=' + form6.charter_type + '&type=' + form6.type_id + form6.charter_guests + '&sort=' + form6.sort
         url = base_url + query_parameters;
         console.log(url);
         window.open(url);
+
+        //  + '&dates=' + form6.date1 + '-' + form6.date2
     }
     
 }
