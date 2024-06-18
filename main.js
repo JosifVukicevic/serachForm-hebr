@@ -1302,7 +1302,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function functionForButton2() {
     var base_url = 'https://montenegrovillas.com/en/villas';
-    var query_parameters = '?q=' + form2.villas_goingTo + '&from=' + form2.villas_fromDate + '&to=' + form2.villas_toDate + `&dates=${form2.villas_fromDateFormat} to ${form2.villas_toDateFormat}` + form2.villas_toDate + '&type=' + form2.villas_type;
+    var query_parameters = '?q=' + form2.villas_goingTo + '&from=' + form2.villas_fromDate + '&to=' + form2.villas_toDate + `&dates=${form2.villas_fromDateFormat} to ${form2.villas_toDateFormat}` + '&type=' + form2.villas_type + '&sort=max_guests+asc';
     url = base_url + query_parameters + form2.villas_travelers;
     console.log(url);
     window.open(url);
