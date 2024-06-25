@@ -474,3 +474,9 @@ form input[type=button] {
     position: absolute;
     visibility: hidden;
 }
+
+#requiredText-transTime {
+    color: red;
+    position: absolute;
+    visibility: hidden;
+}

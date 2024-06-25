@@ -312,7 +312,7 @@ document.addEventListener('DOMContentLoaded', function () {
             startDate.setDate(now.getDate() + 1);
 
             var endDate = new Date(startDate);
-            endDate.setDate(startDate.getDate() + 7); 
+            endDate.setDate(startDate.getDate() + 7);
 
             var formattedStartDate = startDate.toISOString().split('T')[0];
             var formattedEndDate = endDate.toISOString().split('T')[0];
@@ -332,7 +332,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (tabId === 'tab4') {
             var now = new Date();
             var startDate = new Date(now);
-            startDate.setDate(now.getDate());
+            startDate.setDate(now.getDate() + 1);
 
             var formattedStartDate = startDate.toISOString().split('T')[0];
 
@@ -1362,21 +1362,35 @@ function functionForButton4() {
 
     var valid = true;
 
-    // Provera Pick Up polja
+    // for time
+
+    var requiredTextTransfTime = document.getElementById("requiredText-transTime");
+    var mainDivTransfTime = document.getElementById("main-div-transfers-time");
+
+    
+    const now = new Date();
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+
+    hours = hours < 10 ? '0' + hours : hours;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+
+    const currentTime = hours + ':' + minutes;
+
+    console.log(currentTime);
+
+
+    // Provjera Pick Up polja
     if (inputFieldPickUp.value.trim() === "") {
         requiredTextThird.style.visibility = "visible";
         mainDivFields1.style.border = "2px solid red";
-        valid = false;
-    } else if (!inputDateTransf.value) {
-        requiredTextFifth.style.visibility = "visible";
-        mainDIvFields3.style.border = "2px solid red";
         valid = false;
     } else {
         requiredTextThird.style.visibility = "hidden";
         mainDivFields1.style.border = "none";
     }
 
-    // Provera Drop Off polja
+    // Provjera Drop Off polja
     if (inputFieldSamePickUp.value.trim() === "") {
         requiredTextFourth.style.visibility = "visible";
         mainDivFields2.style.border = "2px solid red";
@@ -1384,6 +1398,41 @@ function functionForButton4() {
     } else {
         requiredTextFourth.style.visibility = "hidden";
         mainDivFields2.style.border = "none";
+    }
+
+    // Validacija za vrijeme - transfers
+
+    if (form4.transfers_pickUpTime < currentTime) {
+        requiredTextTransfTime.style.visibility = "visible";
+        mainDivTransfTime.style.border = "2px solid red";
+        valid = false;
+    } else {
+        requiredTextTransfTime.style.visibility = "hidden";
+        mainDivTransfTime.style.border = "none";
+    }
+
+    // Validacija za datum - transfers
+
+    var dateForTrans = form4.transfers_dateFormat;
+
+    function parseDate(dateString) {
+        var parts = dateString.split('-');
+        var day = parseInt(parts[0], 10);
+        var month = parseInt(parts[1], 10) - 1; // Mjeseci su indeksirani od 0 u JavaScriptu
+        var year = parseInt(parts[2], 10);
+        return new Date(year, month, day);
+    }
+    
+    var pickUpDate = parseDate(dateForTrans);
+    var today = new Date();
+
+    if (pickUpDate < today || pickUpDate === today) {
+        requiredTextFifth.style.visibility = "visible";
+        mainDIvFields3.style.border = "2px solid red";
+        valid = false;
+    } else {
+        requiredTextFifth.style.visibility = "hidden";
+        mainDIvFields3.style.border = "none";
     }
 
 
@@ -1423,7 +1472,7 @@ function functionForButton6() {
     }
 
 
-    if (valid){
+    if (valid) {
 
         // ID za destinacije
 
@@ -1469,5 +1518,5 @@ function functionForButton6() {
 
         //  + '&dates=' + form6.date1 + '-' + form6.date2
     }
-    
+
 }
